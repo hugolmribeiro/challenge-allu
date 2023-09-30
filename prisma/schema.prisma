@@ -1,6 +1,6 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "./prisma/client"
+  engineType = "binary"
 }
 
 datasource db {
@@ -15,5 +15,7 @@ model User {
   password    String  
   createdAt   DateTime    @default(now())
   updatedAt   DateTime?
+
+  @@map("users")
 }
 
