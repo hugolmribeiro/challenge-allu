@@ -21,8 +21,12 @@ export class User implements SerializableEntity {
     this._name = name;
     this._email = email;
     this._password = password;
-    this._createdAt = moment(createdAt).format('YYYY-MM-DD HH:mm:ss');
-    this._updatedAt = moment(updatedAt).format('YYYY-MM-DD HH:mm:ss');
+    this._createdAt = moment(createdAt).isValid()
+      ? moment(createdAt).format('YYYY-MM-DD HH:mm:ss')
+      : null;
+    this._updatedAt = updatedAt
+      ? moment(updatedAt).format('YYYY-MM-DD HH:mm:ss')
+      : null;
   }
 
   get id(): number {
@@ -62,8 +66,9 @@ export class User implements SerializableEntity {
   }
 
   set createdAt(createdAt: string) {
-    console.log(createdAt);
-    console.log(moment(createdAt));
+    if (!moment(createdAt).isValid()) {
+      this._updatedAt = null;
+    }
     this._createdAt = moment(createdAt).format('YYYY-MM-DD HH:mm:ss');
   }
 
@@ -72,6 +77,9 @@ export class User implements SerializableEntity {
   }
 
   set updatedAt(updatedAt: string | null) {
+    if (!moment(updatedAt).isValid()) {
+      this._updatedAt = null;
+    }
     this._updatedAt = moment(updatedAt).format('YYYY-MM-DD HH:mm:ss');
   }
 

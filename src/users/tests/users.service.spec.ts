@@ -51,7 +51,6 @@ describe('UsersService', () => {
         email: 'jdoe@example.com',
         password: 'password',
       };
-      console.log(new Date().toUTCString());
       const user = new User(
         null,
         userToCreate.name,

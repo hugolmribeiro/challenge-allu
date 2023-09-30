@@ -17,8 +17,8 @@ export class PrismaUserMapper {
       prismaUser.name,
       prismaUser.email,
       prismaUser.password,
-      prismaUser.createdAt.toISOString(),
-      prismaUser.updatedAt.toISOString(),
+      prismaUser.createdAt,
+      prismaUser.updatedAt,
     );
   }
 }
