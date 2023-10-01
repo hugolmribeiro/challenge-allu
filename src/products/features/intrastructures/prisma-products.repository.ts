@@ -18,19 +18,10 @@ export class PrismaProductsRepository implements IProductsRepository {
   ): Promise<ProductEntity[]> {
     const products = await this.prisma.product.findMany({
       where: {
-        OR: [
-          {
-            name: {
-              contains: search,
-              mode: 'insensitive',
-            },
-          },
-          {
-            name: {
-              contains: '',
-            },
-          },
-        ],
+        name: {
+          contains: search ?? '',
+          mode: 'insensitive',
+        },
       },
       orderBy: {
         [orderBy.column]: orderBy.order,

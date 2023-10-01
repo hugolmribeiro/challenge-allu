@@ -5,8 +5,8 @@ export class PrismaProductMapper {
   toDomain(prismaProduct: PrismaProduct): ProductEntity {
     return new ProductEntity(
       prismaProduct.id,
-      prismaProduct.code,
       prismaProduct.name,
+      prismaProduct.code,
       prismaProduct.price,
       prismaProduct.description,
       prismaProduct.image,
