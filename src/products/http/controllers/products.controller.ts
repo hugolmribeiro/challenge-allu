@@ -2,7 +2,7 @@ import { IsPublic } from '@/common/utils/decorators/is-public.decorator';
 import { IProductsService } from '@/products/features/contracts/products.service.interface';
 import { Product } from '@/products/features/entities/product.entity';
 import { Controller, Get, Inject, Query } from '@nestjs/common';
-import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiQuery, ApiTags } from '@nestjs/swagger';
 
 @Controller('products')
 @ApiBearerAuth('JWT-auth')
@@ -15,10 +15,13 @@ export class ProductsController {
 
   @Get()
   @IsPublic()
+  @ApiQuery({ name: 'search', type: String, required: false })
+  @ApiQuery({ name: 'orderBy', type: String, required: false })
+  @ApiQuery({ name: 'order', type: String, required: false })
   public async findAll(
-    @Query('search') search: string,
-    @Query('orderBy') orderBy: string,
-    @Query('order') order: string,
+    @Query('search') search?: string,
+    @Query('orderBy') orderBy?: string,
+    @Query('order') order?: string,
   ) {
     const products = await this.productsService.findAll(search, orderBy, order);
     return products.map((product: Product) => product.serialize());
