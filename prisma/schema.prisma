@@ -19,3 +19,14 @@ model User {
   @@map("users")
 }
 
+model Product {
+  id          Int @id @default(autoincrement())
+  name        String
+  code        String @unique
+  price       Float
+  description String?
+  image       String?
+
+  @@map("products")
+}
+

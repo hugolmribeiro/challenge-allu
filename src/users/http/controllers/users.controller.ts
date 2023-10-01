@@ -12,7 +12,7 @@ import { UpdateUserDto } from '../dto/update-user.dto';
 import { IUsersService } from '@/users/features/contracts/users.service.interface';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { IsPublic } from '@/common/utils/decorators/is-public.decorator';
-import { JwtUser } from '@/auth/utils/models/JwtUser';
+import { JwtUser } from '@/common/utils/models/jwt-user.interface';
 import { CurrentUser } from '@/common/utils/decorators/current-user.decorator';
 
 @Controller('users')
