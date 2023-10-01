@@ -2,7 +2,7 @@ import { User as PrismaUser } from '@prisma/client';
 import { User as UserEntity } from '../../entities/user.entity';
 
 export class PrismaUserMapper {
-  static toPrisma(user: UserEntity) {
+  public toPrisma(user: UserEntity) {
     return {
       name: user.name,
       email: user.email,
@@ -11,7 +11,7 @@ export class PrismaUserMapper {
       updatedAt: user.updatedAt,
     };
   }
-  static toDomain(prismaUser: PrismaUser): UserEntity {
+  public toDomain(prismaUser: PrismaUser): UserEntity {
     return new UserEntity(
       prismaUser.id,
       prismaUser.name,

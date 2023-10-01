@@ -6,15 +6,18 @@ import { PrismaUserMapper } from './mappers/prisma-user.mapper';
 
 @Injectable()
 export class PrismaUsersRepository implements IUsersRepository {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly mapper: PrismaUserMapper,
+  ) {}
 
   public async store(user: User): Promise<User> {
     const createdUser = await this.prisma.user.create({
       data: {
-        ...PrismaUserMapper.toPrisma(user),
+        ...this.mapper.toPrisma(user),
       },
     });
-    return PrismaUserMapper.toDomain(createdUser);
+    return this.mapper.toDomain(createdUser);
   }
 
   public async findById(id: number): Promise<User | null> {
@@ -26,7 +29,7 @@ export class PrismaUsersRepository implements IUsersRepository {
     if (!user) {
       return null;
     }
-    return PrismaUserMapper.toDomain(user);
+    return this.mapper.toDomain(user);
   }
 
   public async findByEmail(email: string): Promise<User | null> {
@@ -38,7 +41,7 @@ export class PrismaUsersRepository implements IUsersRepository {
     if (!user) {
       return null;
     }
-    return PrismaUserMapper.toDomain(user);
+    return this.mapper.toDomain(user);
   }
 
   public async update(id: number, user: User): Promise<User> {
@@ -47,9 +50,9 @@ export class PrismaUsersRepository implements IUsersRepository {
         id,
       },
       data: {
-        ...PrismaUserMapper.toPrisma(user),
+        ...this.mapper.toPrisma(user),
       },
     });
-    return PrismaUserMapper.toDomain(updatedUser);
+    return this.mapper.toDomain(updatedUser);
   }
 }
