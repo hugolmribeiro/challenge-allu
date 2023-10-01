@@ -1,5 +1,5 @@
-import { UserPayload } from '@/auth/utils/models/UserPayload';
-import { UserToken } from '@/auth/utils/models/UserToken';
+import { UserPayload } from '@/auth/utils/models/user-payload.interface';
+import { UserToken } from '@/auth/utils/models/user-token.interface';
 import { IUsersService } from '@/users/features/contracts/users.service.interface';
 import { User } from '@/users/features/entities/user.entity';
 import { Injectable, UnauthorizedException, Inject } from '@nestjs/common';

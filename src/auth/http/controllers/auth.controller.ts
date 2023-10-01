@@ -9,7 +9,7 @@ import {
   Inject,
 } from '@nestjs/common';
 import { LocalAuthGuard } from '../guards/local-auth.guard';
-import { AuthRequest } from '@/auth/utils/models/AuthRequest';
+import { AuthRequest } from '@/auth/utils/models/auth-request.interface';
 import { ApiBody, ApiTags } from '@nestjs/swagger';
 import { IsPublic } from '@/common/utils/decorators/is-public.decorator';
 

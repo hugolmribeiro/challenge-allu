@@ -3,7 +3,7 @@ import { AuthService } from '../features/services/auth.service';
 import { JwtService } from '@nestjs/jwt';
 import { IUsersService } from '@/users/features/contracts/users.service.interface';
 import { User } from '@/users/features/entities/user.entity';
-import { UserToken } from '../utils/models/UserToken';
+import { UserToken } from '../utils/models/user-token.interface';
 import { UsersModule } from '@/users/users.module';
 
 describe('AuthService', () => {

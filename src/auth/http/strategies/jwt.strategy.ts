@@ -1,5 +1,5 @@
-import { JwtUser } from '../../utils/models/JwtUser';
-import { UserPayload } from '../../utils/models/UserPayload';
+import { JwtUser } from '../../../common/utils/models/jwt-user.interface';
+import { UserPayload } from '../../utils/models/user-payload.interface';
 import { PassportStrategy } from '@nestjs/passport';
 import { ExtractJwt, Strategy } from 'passport-jwt';
 
