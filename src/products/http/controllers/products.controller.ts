@@ -1,7 +1,7 @@
 import { IsPublic } from '@/common/utils/decorators/is-public.decorator';
 import { IProductsService } from '@/products/features/contracts/products.service.interface';
 import { Product } from '@/products/features/entities/product.entity';
-import { Controller, Get, Inject, Query } from '@nestjs/common';
+import { Controller, Get, Inject, Param, Query } from '@nestjs/common';
 import { ApiBearerAuth, ApiQuery, ApiTags } from '@nestjs/swagger';
 
 @Controller('products')
@@ -29,14 +29,14 @@ export class ProductsController {
 
   @Get(':id')
   @IsPublic()
-  public async findById(@Query('id') id: number) {
-    const product = await this.productsService.findById(id);
+  public async findById(@Param('id') id: number) {
+    const product = await this.productsService.findById(+id);
     return product.serialize();
   }
 
   @Get('code/:code')
   @IsPublic()
-  public async findByCode(@Query('code') code: string) {
+  public async findByCode(@Param('code') code: string) {
     const product = await this.productsService.findByCode(code);
     return product.serialize();
   }
