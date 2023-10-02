@@ -1,79 +1,63 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# challenge-allu-frontend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Aplicação do backend para o desafio técnico da allu. Aplicação feita em nodeJS usando o framework [NestJs](https://nestjs.com/).
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Como instalar e utilizar
+Todos comando abaixo podem ser rodados no terminal do vscode, windows ou linux
 
-## Description
+- Clonar o repositório do github
+  ```bash
+  $ git clone https://github.com/hugolmribeiro/challenge-allu-frontend
+  ```
+- Depois de clonado, na linha de comando, rodar o seguinte comando para instalar as dependências do projeto. (_É necessário ter o node e o npm instalados no computador para rodar os comandos a seguir_). Link para instalar o [node](https://nodejs.org/en/download) - [Tutorial](https://www.youtube.com/watch?v=iXvtbFa32Jg)
+  ```bash
+  $ npm install
+  ```
+### Váriaveis de ambiente
+O repositório possui um arquivo chamado [.env.example](https://github.com/hugolmribeiro/challenge-allu/blob/main/.env.example) que possui todas variáveis de ambiente necessárias para o funcionamento da api. É necessário criar um arquivo chamado .env com as chaves listadas no .env.example.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
+### Banco de dados
+O banco de dados usado na aplicação é o postgres, portanto é necessário ter o postgres instalado e configurado no computador. Segue o [tutorial](https://www.youtube.com/watch?v=L_2l8XTCPAE)(Até 7:00 minutos). Após configurado o postgres, troque a chave DATABASE_URL para a suas configurações de conexão.
+- Instalando o CLI do Prisma para rodar as migrations e seeds
+  ```bash
+  $ npm install -g prisma
+  ```
+  
+- Rodando as migration e criando o banco de dados
+  ```bash
+  $ npx migrate dev
+  ```
+- Gerando o client do prisma
+  ```bash
+  $ npx prisma generate
+  ``` 
+### Seed Products
+- Rodando a seed o banco será alimentado com produtos
 ```bash
-$ npm install
+$ npx prisma db seed
 ```
+### Rodando aplicação
 
-## Running the app
-
+- Comando para compilar o código e inicia o servidor de desenvolvimento
 ```bash
-# development
-$ npm run start
-
-# watch mode
 $ npm run start:dev
 
-# production mode
-$ npm run start:prod
 ```
 
-## Test
+- Com a aplicação já deverá estar pronta uso.
 
+## Informações adicionais 
+- A aplicação possui documentação de todos seus endpoints pelo swagger, para ver o swagger basta acessar http://localhost:3000/api#/ com o servidor de desenvolvimento rodando
+- [Esquema do banco de dados da aplicação](https://drive.google.com/file/d/14Da9XCc9StHfTbMMXGlr_RREv3FQITsx/view?usp=sharing)
+
+
+### Testes
+A aplicação possui alguns testes unitários, para rodar os testes use um dos comandado abaixo:
 ```bash
 # unit tests
 $ npm run test
-
-# e2e tests
-$ npm run test:e2e
 
 # test coverage
 $ npm run test:cov
 ```
 
-## Seed Products
-
-```bash
-$ npx prisma db seed
-```
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
