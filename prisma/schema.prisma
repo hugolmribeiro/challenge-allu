@@ -15,6 +15,7 @@ model User {
   password    String  
   createdAt   String   
   updatedAt   String?
+  orders      Order[]
 
   @@map("users")
 }
@@ -26,7 +27,23 @@ model Product {
   price       Float
   description String?
   image       String?
+  orders      Order[]
 
   @@map("products")
+}
+
+model Order {
+  id          Int      @id @default(autoincrement())
+  status      Int
+  value       Float
+  document    String
+  payment     String
+  createdAt   String
+  user        User     @relation(fields: [userId], references: [id])
+  userId      Int
+  product     Product  @relation(fields: [productId], references: [id])
+  productId   Int
+
+  @@map("orders")
 }
 
