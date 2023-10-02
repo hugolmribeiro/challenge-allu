@@ -12,7 +12,7 @@ async function seedProducts() {
           price: 1999.99,
           description: 'Descrição do iPhone',
           image:
-            'https://drive.google.com/file/d/1gG--c5_95cOiyraY99Mc5cKs__zx4OsF/view?usp=sharing',
+            'https://img.freepik.com/fotos-gratis/composicao-elegante-de-smartphone_23-2149437106.jpg?size=626&ext=jpg&ga=GA1.2.761695295.1696214054&semt=sph',
         },
         {
           name: 'iPhone 13s ',
@@ -20,7 +20,7 @@ async function seedProducts() {
           price: 2299.99,
           description: 'Descrição do iPhone 13s ',
           image:
-            'https://drive.google.com/file/d/1gG--c5_95cOiyraY99Mc5cKs__zx4OsF/view?usp=sharing',
+            'https://img.freepik.com/fotos-gratis/composicao-de-bobinas-criativas_23-2149711507.jpg',
         },
         {
           name: 'iPhone 14',
@@ -28,7 +28,7 @@ async function seedProducts() {
           price: 3039.99,
           description: 'Descrição do iPhone 14',
           image:
-            'https://drive.google.com/file/d/1gG--c5_95cOiyraY99Mc5cKs__zx4OsF/view?usp=sharing',
+            'https://img.freepik.com/fotos-gratis/balanceamento-de-smartphone-com-fundo-rosa_23-2150271746.jpg?size=626&ext=jpg&ga=GA1.2.761695295.1696214054&semt=sph',
         },
         {
           name: 'iPhone 14 pro',
@@ -36,7 +36,7 @@ async function seedProducts() {
           price: 3490.99,
           description: 'Descrição do iPhone 14 pro',
           image:
-            'https://drive.google.com/file/d/1gG--c5_95cOiyraY99Mc5cKs__zx4OsF/view?usp=sharing',
+            'https://img.freepik.com/fotos-gratis/vista-do-balanceamento-de-produtos-eletronicos-no-podio_23-2150141321.jpg?size=626&ext=jpg&ga=GA1.1.761695295.1696214054&semt=sph',
         },
         {
           name: 'iPhone 15',
@@ -44,7 +44,7 @@ async function seedProducts() {
           price: 3959.99,
           description: 'Descrição do iPhone 15',
           image:
-            'https://drive.google.com/file/d/1gG--c5_95cOiyraY99Mc5cKs__zx4OsF/view?usp=sharing',
+            'https://img.freepik.com/fotos-gratis/balanceamento-de-smartphone-com-fundo-violeta_23-2150271744.jpg?size=626&ext=jpg&ga=GA1.1.761695295.1696214054&semt=sph',
         },
       ],
     });

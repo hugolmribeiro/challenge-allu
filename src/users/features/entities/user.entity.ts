@@ -88,7 +88,6 @@ export class User implements SerializableEntity {
       id: this.id,
       name: this.name,
       email: this.email,
-      password: this.password,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt,
     };
