@@ -1,4 +1,4 @@
-# challenge-allu-frontend
+# challenge-allu
 
 Aplicação do backend para o desafio técnico da allu. Aplicação feita em nodeJS usando o framework [NestJs](https://nestjs.com/).
 
