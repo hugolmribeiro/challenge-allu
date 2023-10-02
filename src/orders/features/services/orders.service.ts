@@ -7,6 +7,7 @@ import { OrderStatuses } from '../enums/order-statuses.enum';
 import { UpdateOrderStatusDto } from '@/orders/http/dto/update-order-status.dto';
 import * as fs from 'fs';
 import * as path from 'path';
+import { mkdirp } from 'mkdirp';
 
 @Injectable()
 export class OrdersService implements IOrdersService {
@@ -37,12 +38,20 @@ export class OrdersService implements IOrdersService {
   }
 
   async uploadDocument(userId: number, document: any): Promise<string> {
-    const fileName = `${new Date().getTime()}-${document.originalname}`;
+    const fileName = `${new Date().getTime()}-${userId}-${
+      document.originalname
+    }`;
     const uploadDir = path.resolve('uploads/documents');
+
     const filePath = path.join(uploadDir, fileName);
 
-    fs.writeFileSync(filePath, document.buffer);
-
+    mkdirp(path.dirname(filePath))
+      .then(() => {
+        fs.writeFileSync(filePath, document.buffer);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     return filePath;
   }
 }
